@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopX - Premium Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">ShopX</div>
+        <input type="text" id="searchInput" placeholder="Search products...">
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Premium Black & Gold Store</h1>
+        <p>Best quality products • Lowest prices • Fast delivery</p>
+        <a href="#products" class="btn">Shop Now</a>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="cat">Fashion</div>
+        <div class="cat">Electronics</div>
+        <div class="cat">Home</div>
+        <div class="cat">Beauty</div>
+        <div class="cat">Kitchen</div>
+    </section>
+
+    <!-- Product Section -->
+    <h2 class="section-title">🔥 Trending Products</h2>
+    <div class="products" id="products"></div>
+
+    <!-- Order Popup -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">×</span>
+
+            <h2 id="modalProductName"></h2>
+            <p id="modalProductDesc"></p>
+
+            <form id="orderForm">
+                <input type="text" id="custName" placeholder="Full Name" required>
+                <input type="tel" id="custMobile" placeholder="Mobile Number" required>
+                <input type="text" id="custState" placeholder="State" required>
+                <input type="text" id="custDistrict" placeholder="District" required>
+                <input type="text" id="custPincode" placeholder="Pincode" required>
+                <textarea id="custAddress" placeholder="Full Address" required></textarea>
+
+                <button type="submit" class="btn gold">Confirm Order</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    background: #000;
+    color: #FFD166;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    background: #111;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #FFD166;
+}
+
+header input {
+    width: 50%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 2px solid #FFD166;
+    background: #000;
+    color: #FFD166;
+}
+
+.hero {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(#000, #111);
+}
+
+.btn {
+    background: #FFD166;
+    padding: 10px 22px;
+    border-radius: 8px;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.categories {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 15px;
+}
+
+.cat {
+    background: #111;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: 1px solid #FFD166;
+    white-space: nowrap;
+}
+
+.section-title {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+    gap: 12px;
+}
+
+.card {
+    background: #111;
+    border: 1px solid #FFD166;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.buy-btn {
+    margin-top: 8px;
+    width: 100%;
+    padding: 8px;
+    background: #FFD166;
+    color: #000;
+    font-weight: bold;
+    border-radius: 6px;
+    border: none;
+}
+
+/* POPUP */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+}
+
+.modal-content {
+    background: #111;
+    width: 85%;
+    margin: 40px auto;
+    padding: 20px;
+    border: 2px solid #FFD166;
+    border-radius: 12px;
+}
+
+.modal input, .modal textarea {
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    border: 2px solid #FFD166;
+    background: #000;
+    color: #FFD166;
+    border-radius: 6px;
+}
+
+.close {
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+}
