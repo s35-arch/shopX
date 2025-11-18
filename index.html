@@ -1,62 +1,137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopX - Premium Store</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShopX • Premium Deals (ShopX - शॉपएक्स)</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="logo">ShopX</div>
-        <input type="text" id="searchInput" placeholder="Search products...">
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Premium Black & Gold Store</h1>
-        <p>Best quality products • Lowest prices • Fast delivery</p>
-        <a href="#products" class="btn">Shop Now</a>
-    </section>
-
-    <!-- Categories -->
-    <section class="categories">
-        <div class="cat">Fashion</div>
-        <div class="cat">Electronics</div>
-        <div class="cat">Home</div>
-        <div class="cat">Beauty</div>
-        <div class="cat">Kitchen</div>
-    </section>
-
-    <!-- Product Section -->
-    <h2 class="section-title">🔥 Trending Products</h2>
-    <div class="products" id="products"></div>
-
-    <!-- Order Popup -->
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeModal">×</span>
-
-            <h2 id="modalProductName"></h2>
-            <p id="modalProductDesc"></p>
-
-            <form id="orderForm">
-                <input type="text" id="custName" placeholder="Full Name" required>
-                <input type="tel" id="custMobile" placeholder="Mobile Number" required>
-                <input type="text" id="custState" placeholder="State" required>
-                <input type="text" id="custDistrict" placeholder="District" required>
-                <input type="text" id="custPincode" placeholder="Pincode" required>
-                <textarea id="custAddress" placeholder="Full Address" required></textarea>
-
-                <button type="submit" class="btn gold">Confirm Order</button>
-            </form>
-        </div>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo-wrap">
+      <!-- inline SVG logo (ShopX) -->
+      <svg id="shopx-logo" width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="100" height="100" rx="16" fill="#0b0b0b"/>
+        <text x="50%" y="56%" text-anchor="middle" fill="#FFD166" font-family="Verdana,Arial" font-weight="700" font-size="42">SX</text>
+      </svg>
+      <div class="brand">ShopX <span class="brand-sub">| शॉपएक्स</span></div>
     </div>
 
-    <script src="script.js"></script>
+    <div class="search-wrap">
+      <input id="searchInput" type="search" placeholder="Search products / खोजें, जैसे earbuds" aria-label="Search products">
+    </div>
 
+    <nav class="nav-right">
+      <a id="cartBtn" href="#" aria-label="Cart">Cart (<span id="cartCount">0</span>)</a>
+    </nav>
+  </header>
+
+  <!-- HERO / BANNER SLIDER -->
+  <section class="hero">
+    <div class="hero-slider" id="heroSlider">
+      <div class="slide">
+        <h1>Black & Gold Premium Deals</h1>
+        <p>Curated products • Best prices • तेज डिलीवरी</p>
+        <a class="cta" href="#products">Shop Now • अभी खरीदें</a>
+      </div>
+      <div class="slide">
+        <h1>Flash Sale — Limited Time</h1>
+        <p>Hot deals on electronics, fashion & more • ऑफर सीमित समय के लिए</p>
+        <a class="cta" href="#products">Grab Deals • ले लो ऑफर</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories" id="categories" aria-label="Categories">
+    <!-- JS will insert category chips here -->
+  </section>
+
+  <!-- MAIN PRODUCTS -->
+  <main class="container">
+    <h2 class="section-title">🔥 Trending Products / ट्रेंडिंग प्रोडक्ट</h2>
+
+    <div id="products" class="products-grid" aria-live="polite">
+      <!-- JS will render product cards here -->
+	<div class="product-card">
+    <img src="images/product1.jpg" alt="Product Image">
+    <h3>Premium T-Shirt</h3>
+    <p class="price">₹299</p>
+    <button class="buy-btn" onclick="openBuyPopup('Premium T-Shirt', '299', 'images/product1.jpg')">
+        Buy Now
+    </button>
+</div>
+
+    </div>
+
+    <!-- optional: load more -->
+    <div class="loadmore-wrap">
+      <button id="loadMore" class="btn gold small">Load more / और दिखाओ</button>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© 2025 ShopX • Built for small sellers • छोटे विक्रेता के लिए</div>
+      <div>Contact: <a href="mailto:raw00883@gmail.com">raw00883@gmail.com</a></div>
+    </div>
+  </footer>
+
+  <!-- ORDER MODAL (popup) -->
+  <div id="orderModal" class="modal hidden" aria-hidden="true" role="dialog" aria-labelledby="modalProductName">
+    <div class="modal-content">
+      <button class="closeBtn" id="closeModal" aria-label="Close">×</button>
+
+      <div class="modal-body">
+        <h2 id="modalProductName">Product name</h2>
+        <p id="modalProductDesc" class="muted">Product short description / छोटा विवरण</p>
+
+        <form id="orderForm" autocomplete="on">
+          <label>Full Name / पूरा नाम
+            <input type="text" id="custName" name="name" required placeholder="Your name / आपका नाम">
+          </label>
+
+          <label>Mobile Number / मोबाइल नंबर
+            <input type="tel" id="custMobile" name="mobile" required pattern="[0-9]{10}" placeholder="10-digit mobile / 10 अंकों का नंबर">
+          </label>
+
+          <label>State / राज्य
+            <input type="text" id="custState" name="state" required placeholder="State / राज्य">
+          </label>
+
+          <label>District / जिला
+            <input type="text" id="custDistrict" name="district" required placeholder="District / जिला">
+          </label>
+
+          <label>Pincode / पिनकोड
+            <input type="text" id="custPincode" name="pincode" required pattern="[0-9]{5,6}" placeholder="Pincode / पिनकोड">
+          </label>
+
+          <label>Full Address / पूरा पता
+            <textarea id="custAddress" name="address" required placeholder="House no, street, area / घर का पता"></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="btn confirm gold" id="confirmOrder">Confirm & Send • पुष्टि भेजें</button>
+            <button type="button" class="btn whatsapp" id="whatsappOnly">WhatsApp Only • सिर्फ WhatsApp</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- small JS hook for graceful fallback -->
+  <script>
+    // Keep a placeholder so user doesn't see empty page before JS loads.
+    document.addEventListener('DOMContentLoaded', ()=> {
+      // nothing; real rendering from script.js
+    });
+  </script>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
